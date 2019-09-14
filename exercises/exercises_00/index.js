@@ -14,17 +14,16 @@ const { test, expect } = require('../utils')
  * @returns {[{value: number}, (newValue: number) => void]} an array containing the value and a function to update the value
  */
 function useCount(initialValue) {
-  /**
-   *
-   *
-   * Write your code here in this function block
-   *
-   *
-   */
+  // set initial value
+  let count = { value: initialValue };
+  // ability to update the value
+  const setCount = (value) => count.value = value;
+  return [count, setCount];
 }
 
 test('useCount - returns an array with a value and a function to update the value', () => {
   const [count, setCount] = useCount(0)
+  console.log(count.value);
 
   expect(typeof count, 'object', 'count is an object')
   expect(
